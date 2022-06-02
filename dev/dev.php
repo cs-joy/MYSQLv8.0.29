@@ -15,8 +15,8 @@ $mysql_database = $_ENV['DATABASE'];
 <?php
 
 // Name of the file
-$filename = 'sale_pr.sql';
-$table = "promotions";
+$filename = 'create_pr.sql';
+$table = "pr";
 // Connect to MySQL server
 $con = @new mysqli($mysql_host,$mysql_username,$mysql_password,$mysql_database);
 
