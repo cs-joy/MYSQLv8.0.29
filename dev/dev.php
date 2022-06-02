@@ -15,8 +15,8 @@ $mysql_database = $_ENV['DATABASE'];
 <?php
 
 // Name of the file
-$filename = 'db.sql';
-
+$filename = 'promo.sql';
+$table = "sales_promotions";
 // Connect to MySQL server
 $con = @new mysqli($mysql_host,$mysql_username,$mysql_password,$mysql_database);
 
@@ -46,5 +46,7 @@ foreach ($lines as $line) {
         $templine = '';
     }
 }
-echo "Data imported successfully to `new_sql` table";
+
+echo "Data imported successfully to $table table";
+
 mysqli_close($con);
