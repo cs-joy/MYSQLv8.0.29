@@ -118,7 +118,7 @@ if (isset($_POST['create'])) {
             </form>
         </div>
         <div>
-            <h3>Import data into productsTest table</h3>
+            <h3>Import data into products table</h3>
             <form action="index.php" method="post">
                 <label>ProductID</label>
                 <input type="text" name="ProductID" required>
