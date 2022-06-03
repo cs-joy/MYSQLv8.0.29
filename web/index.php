@@ -104,16 +104,19 @@ if (isset($_POST['create'])) {
             <?php
 
             if (isset($_POST['pcreate'])) {
-                $sql = "CREATE TABLE productsTest(ProductID int(11), ProductName varchar(110), SupplierID int(11), CategoryID int(11), Unit varchar(110), Price varchar(110))";
+                $table = $_POST['tableName'];
+
+                $sql = "CREATE TABLE $table(ProductID int(11), ProductName varchar(110), SupplierID int(11), CategoryID int(11), Unit varchar(110), Price varchar(110))";
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
-                    echo "your product table create successfully";
-                    header('Location: index.php');
+                    echo "your product $table create successfully";
                 }
             }
 
             ?>
             <form action="index.php" method="post">
+                <label for="tableName">Table Name</label>
+                <input type="text" name="tableName">
                 <button type="submit" name="pcreate">Table Create</button>
             </form>
         </div>
