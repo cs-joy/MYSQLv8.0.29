@@ -162,10 +162,10 @@ if (isset($_POST['create'])) {
             <?php
 
             if (isset($_POST['remove'])) {
-                $sql = "DELETE FROM productsTest";
+                $sql = "DELETE FROM products WHERE ProductName='Ikura'";
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
-                    echo "your product table removed successfully";
+                    echo " removed successfully";
                 }
             }
 
