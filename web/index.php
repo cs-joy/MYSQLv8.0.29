@@ -43,7 +43,7 @@ if (isset($_POST['create'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYSQL</title>
+    <title>MYSQL Database Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
@@ -164,20 +164,47 @@ if (isset($_POST['create'])) {
             <form action="index.php" method="post">
                 <label for="price_range">Range</label>
                 <input type="text" name="price_range">
+
                 <button type="submit" name="prange">Find</button>
             </form>
+            <form action="index.php" method="post">
+                <label for="betF">betweenR1</label>
+                <input type="text" name="betF">
+                <label for="betFt">betweenR2</label>
+                <input type="text" name="betFt">
+
+                <button type="submit" name="betRange">Find</button>
+            </form>
+            <?php
+              if(isset($_POST['betRange'])){
+                $fbet = $_POST['betF'];
+                $sbet = $_POST['betFt'];
+
+                $sql = "SELECT * FROM products WHERE Price BETWEEN '$fbet' AND '$sbet'";
+                $execution = mysqli_query($connection, $sql);
+                if ($execution) {
+                    while ($row = mysqli_fetch_assoc($execution)) {
+                        $name = $row['Price'];
+
+                        //echo $name ." | " ."\n";
+                        echo "<h4>$name</h4>";
+                    }
+                }
+
+              }
+            ?>
             <?php
             if (isset($_POST['prange'])) {
                 $price = $_POST['price_range'];
 
-                $sql = "SELECT * FROM products WHERE Price='$price'";
+                $sql = "SELECT * FROM products WHERE Price <> '$price'";
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
                     while ($row = mysqli_fetch_assoc($execution)) {
-                        $name = $row['ProductName'];
+                        $name = $row['Price'];
 
                         //echo $name ." | " ."\n";
-                        echo "<h3>$name</h3>";
+                        echo "<h4>$name</h4>";
                     }
                 }
             }
