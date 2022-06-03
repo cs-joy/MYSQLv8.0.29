@@ -139,18 +139,18 @@ if (isset($_POST['create'])) {
                 <input type="submit" name="sign" value="Submit">
             </form>
             <?php
-              if (isset($_POST['sign'])) {
+            if (isset($_POST['sign'])) {
                 $pID = $_POST['ProductID'];
                 $pName = $_POST['ProductName'];
                 $sID = $_POST['SupplierID'];
                 $cID = $_POST['CategoryID'];
                 $unit = $_POST['Unit'];
                 $price = $_POST['Price'];
-            
+
                 $query = "INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
                 $stmtselect = $connection->prepare($query);
                 $exe = $stmtselect->execute([$pID, $pName, $sID, $cID, $unit, $price]);
-            
+
                 if ($exe) {
                     echo "data submitted";
                 } else {
@@ -158,7 +158,32 @@ if (isset($_POST['create'])) {
                 }
             }
             ?>
+            <hr />
+            <h3>WHERE Statement</h3>
+            <hr />
+            <form action="index.php" method="post">
+                <label for="price_range">Range</label>
+                <input type="text" name="price_range">
+                <button type="submit" name="prange">Find</button>
+            </form>
+            <?php
+            if (isset($_POST['prange'])) {
+                $price = $_POST['price_range'];
+
+                $sql = "SELECT * FROM products WHERE Price='$price'";
+                $execution = mysqli_query($connection, $sql);
+                if ($execution) {
+                    while ($row = mysqli_fetch_assoc($execution)) {
+                        $name = $row['ProductName'];
+
+                        //echo $name ." | " ."\n";
+                        echo "<h3>$name</h3>";
+                    }
+                }
+            }
+            ?>
         </div>
+        <hr />
         <div>
             <h3>DELETE Table</h3>
             <hr />
