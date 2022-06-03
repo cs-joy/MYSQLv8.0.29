@@ -109,7 +109,7 @@ if (isset($_POST['create'])) {
                 $sql = "CREATE TABLE $table(ProductID int(11), ProductName varchar(110), SupplierID int(11), CategoryID int(11), Unit varchar(110), Price varchar(110))";
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
-                    echo "your product $table create successfully";
+                    echo "your $table table create successfully";
                 }
             }
 
@@ -160,20 +160,24 @@ if (isset($_POST['create'])) {
             ?>
         </div>
         <div>
-            <h3>DELETE Statement</h3>
+            <h3>DELETE Table</h3>
             <hr />
             <?php
 
             if (isset($_POST['remove'])) {
-                $sql = "DELETE FROM products WHERE ProductName='Ikura'";
+                $tableN = $_POST['tableN'];
+
+                $sql = "DROP TABLE $tableN";
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
-                    echo " removed successfully";
+                    echo "$tableN table removed successfully from your database";
                 }
             }
 
             ?>
             <form action="index.php" method="post">
+                <label for="tableName">Table Name</label>
+                <input type="text" name="tableN">
                 <button type="submit" name="remove">Delete Table</button>
             </form>
         </div>
