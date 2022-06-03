@@ -67,55 +67,111 @@ if (isset($_POST['create'])) {
             <h3>SELECT Statement</h3>
             <hr />
             <?php
-              $sql = "SELECT name FROM employeer";
-              $execution = mysqli_query($connection, $sql);
-              if($execution){
-                  while($row = mysqli_fetch_assoc($execution)){
+            $sql = "SELECT name FROM employeer";
+            $execution = mysqli_query($connection, $sql);
+            if ($execution) {
+                while ($row = mysqli_fetch_assoc($execution)) {
                     $name = $row['name'];
 
                     //echo $name ." | " ."\n";
                     echo "<h3>$name</h3>";
-                  }
-                  
-              }
+                }
+            }
             ?>
-            
+
         </div>
         <hr />
         <div>
             <h3>WHERE Statement</h3>
             <hr />
             <?php
-              $sql = "SELECT * FROM employeer WHERE email='john@gmail.com'";
-              $execution = mysqli_query($connection, $sql);
-              if($execution){
-                  while($row = mysqli_fetch_assoc($execution)){
+            $sql = "SELECT * FROM employeer WHERE email='john@gmail.com'";
+            $execution = mysqli_query($connection, $sql);
+            if ($execution) {
+                while ($row = mysqli_fetch_assoc($execution)) {
                     $name = $row['name'];
 
                     //echo $name ." | " ."\n";
                     echo "<h3>$name</h3>";
-                  }
-                  
-              }
+                }
+            }
             ?>
-            
+
         </div>
         <div>
             <h3>CREATE Statement</h3>
             <hr />
             <?php
-              
-              if(isset($_POST['pcreate'])){
-                $sql = "CREATE TABLE products(ProductID int(11), ProductName varchar(110), SupplierID int(11), CategoryID int(11), Unit varchar(110), Price varchar(110))";
+
+            if (isset($_POST['pcreate'])) {
+                $sql = "CREATE TABLE productsTest(ProductID int(11), ProductName varchar(110), SupplierID int(11), CategoryID int(11), Unit varchar(110), Price varchar(110))";
                 $execution = mysqli_query($connection, $sql);
-                if($execution){
+                if ($execution) {
                     echo "your product table create successfully";
-                  }
-              }
-              
+                    header('Location: index.php');
+                }
+            }
+
             ?>
             <form action="index.php" method="post">
                 <button type="submit" name="pcreate">Table Create</button>
+            </form>
+        </div>
+        <div>
+            <h3>Import data into productsTest table</h3>
+            <form action="index.php" method="post">
+                <label>ProductID</label>
+                <input type="text" name="ProductID" required>
+                <label>ProductName</label>
+                <input type="text" name="ProductName" required>
+                <label>SupplierID</label>
+                <input type="text" name="SupplierID" required>
+                <label>CategoryID</label>
+                <input type="text" name="CategoryID" required>
+                <label>Unit</label>
+                <input type="text" name="Unit" required>
+                <label>Price</label>
+                <input type="text" name="Price" required>
+
+                <input type="submit" name="sign" value="Submit">
+            </form>
+            <?php
+              if (isset($_POST['sign'])) {
+                $pID = $_POST['ProductID'];
+                $pName = $_POST['ProductName'];
+                $sID = $_POST['SupplierID'];
+                $cID = $_POST['CategoryID'];
+                $unit = $_POST['Unit'];
+                $price = $_POST['Price'];
+            
+                $query = "INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
+                $stmtselect = $connection->prepare($query);
+                $exe = $stmtselect->execute([$pID, $pName, $sID, $cID, $unit, $price]);
+            
+                if ($exe) {
+                    echo "data submitted";
+                } else {
+                    echo "Failed To Submit, Please try again";
+                }
+            }
+            ?>
+        </div>
+        <div>
+            <h3>DELETE Statement</h3>
+            <hr />
+            <?php
+
+            if (isset($_POST['remove'])) {
+                $sql = "DELETE FROM productsTest";
+                $execution = mysqli_query($connection, $sql);
+                if ($execution) {
+                    echo "your product table removed successfully";
+                }
+            }
+
+            ?>
+            <form action="index.php" method="post">
+                <button type="submit" name="remove">Delete Table</button>
             </form>
         </div>
     </div>
