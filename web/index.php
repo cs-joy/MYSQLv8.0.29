@@ -16,6 +16,24 @@ if ($connection->connect_error) {
     echo "Connection failed: " . $connection->connect_error;
 }
 
+if (isset($_POST['create'])) {
+    $name = $_POST['name'];
+    $position = $_POST['position'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $query = "INSERT INTO employeer (name, position, email, password) VALUES (?, ?, ?, ?)";
+    $stmtselect = $connection->prepare($query);
+    $exe = $stmtselect->execute([$name, $position, $email, $password]);
+
+    if ($exe) {
+        echo "ok";
+        header('Location: index.php');
+    } else {
+        echo "Failed To Submit, Please try again";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +49,23 @@ if ($connection->connect_error) {
 
 <body>
     <div class="container my-5">
-        <h4>
-            <?php
-            if ($connection) {
-                echo "Connected!";
-            }
-            ?>
-        </h4>
+        <form action="index.php" method="post">
+            <label>name</label>
+            <input type="text" name="name" required>
+            <label>position</label>
+            <input type="text" name="position" required>
+            <label>email</label>
+            <input type="email" name="email" required>
+            <label>password</label>
+            <input type="password" name="password" required>
+
+            <input type="submit" name="create" value="Submit">
+        </form>
+        <hr />
+        <hr />
+        <div>
+            
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
