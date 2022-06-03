@@ -180,7 +180,8 @@ if (isset($_POST['create'])) {
                 $fbet = $_POST['betF'];
                 $sbet = $_POST['betFt'];
 
-                $sql = "SELECT * FROM products WHERE Price BETWEEN '$fbet' AND '$sbet'";
+                $sql = "SELECT * FROM products WHERE Price BETWEEN '$fbet' AND '$sbet'"; // Between a certain range
+                
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
                     while ($row = mysqli_fetch_assoc($execution)) {
@@ -208,6 +209,30 @@ if (isset($_POST['create'])) {
                     }
                 }
             }
+            ?>
+            <form action="index.php" method="post">
+                <label for="sear">Search</label>
+                <input type="text" name="sear">
+
+                <button type="submit" name="searc">search</button>
+            </form>
+            <?php
+              if(isset($_POST['searc'])){
+                $search = $_POST['sear'];
+
+                $sql = "SELECT * FROM products WHERE ProductName LIKE '$search%' "; // Search
+                
+                $execution = mysqli_query($connection, $sql);
+                if ($execution) {
+                    while ($row = mysqli_fetch_assoc($execution)) {
+                        $name = $row['ProductName'];
+
+                        //echo $name ." | " ."\n";
+                        echo "<h4>$name</h4>";
+                    }
+                }
+
+              }
             ?>
         </div>
         <hr />
