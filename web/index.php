@@ -64,18 +64,41 @@ if (isset($_POST['create'])) {
         <hr />
         <hr />
         <div>
+            <h3>SELECT Statement</h3>
+            <hr />
             <?php
-              $sql = "SELECT position FROM employeer";
+              $sql = "SELECT name FROM employeer";
               $execution = mysqli_query($connection, $sql);
               if($execution){
                   while($row = mysqli_fetch_assoc($execution)){
-                    $n = $row['position'];
+                    $name = $row['name'];
 
-                    echo $n ."\n";
+                    //echo $name ." | " ."\n";
+                    echo "<h3>$name</h3>";
                   }
                   
               }
             ?>
+            
+        </div>
+        <hr />
+        <div>
+            <h3>WHERE Statement</h3>
+            <hr />
+            <?php
+              $sql = "SELECT * FROM employeer WHERE email='john@gmail.com'";
+              $execution = mysqli_query($connection, $sql);
+              if($execution){
+                  while($row = mysqli_fetch_assoc($execution)){
+                    $name = $row['name'];
+
+                    //echo $name ." | " ."\n";
+                    echo "<h3>$name</h3>";
+                  }
+                  
+              }
+            ?>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
