@@ -213,6 +213,8 @@ if (isset($_POST['create'])) {
                 }
             }
             ?>
+
+            <hr />
             <form action="index.php" method="post">
                 <label for="sear">Search</label>
                 <input type="text" name="sear">
@@ -236,6 +238,32 @@ if (isset($_POST['create'])) {
                 }
 
               }
+            ?>
+            <hr />
+
+            <h3>IN Operator</h3> <!-- To specify multiple possible values for a column -->
+            <form action="index.php" method="post">
+                <label for="in"></label>
+                <input type="text" name="in" required>
+
+                <button type="submit" name="in_operator">IN</button>
+            </form>
+            <?php
+
+            if(isset($_POST['in_operator'])){
+                $in_op = $_POST['in'];
+
+                $sql = "SELECT * FROM products WHERE Price IN ($in_op)";
+                $execution = mysqli_query($connection, $sql);
+                if($execution){
+                    while($row=mysqli_fetch_assoc($execution)){
+                        $pName = $row['ProductName'];
+
+                        echo "<h4>$pName</h4>";
+                    }
+                }
+            }
+
             ?>
         </div>
         <hr />
