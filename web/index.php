@@ -492,6 +492,91 @@ if (isset($_POST['create'])) {
 
               }
             ?>
+            <hr />
+            <p id="pro">ORDER BY Several Columns</p>
+            <form action="index.php" method="post">
+                <label for="categi1">Column Name1</label>
+                <input type="text" name="categi1" required>
+                <label for="categi2">Column Name2</label>
+                <input type="text" name="categi2" required>
+
+                <button type="submit" name="sub_a">multiAscending</button>
+            </form>
+            <?php
+              if(isset($_POST['sub_a']))
+              {
+                $categ1 = $_POST['categi1'];
+                $categ2 = $_POST['categi2'];
+
+                $sq_query = "SELECT * FROM products ORDER BY $categ1, $categ2";
+                $xecut = mysqli_query($connection, $sq_query);
+
+                if($xecut){
+                    while($row=mysqli_fetch_assoc($xecut)){
+                        $prdame = $row['Price'];
+
+                        echo "<p class='prdName'>$prdame</p>";
+                    }
+                }
+
+              }
+            ?>
+            <hr class="hi" />
+            <form action="index.php" method="post">
+                <label for="cati1">Column Name1</label>
+                <input type="text" name="cati1" required>
+                <label for="cati2">Column Name2</label>
+                <input type="text" name="cati2" required>
+
+                <button type="submit" name="suba">Ascending + Descending</button>
+            </form>
+            <?php
+              if(isset($_POST['suba']))
+              {
+                $cat1 = $_POST['cati1'];
+                $cat2 = $_POST['cati2'];
+
+                $sq_query = "SELECT * FROM products ORDER BY $cat1 ASC, $cat2 DESC";
+                $xecut = mysqli_query($connection, $sq_query);
+
+                if($xecut){
+                    while($row=mysqli_fetch_assoc($xecut)){
+                        $prdame = $row['ProductID'];
+
+                        echo "<p class='prdName'>$prdame</p>";
+                    }
+                }
+
+              }
+            ?>
+            <hr class="hi" />
+            <form action="index.php" method="post">
+                <label for="cat1">Column Name1</label>
+                <input type="text" name="cat1" required>
+                <label for="cat2">Column Name2</label>
+                <input type="text" name="cat2" required>
+
+                <button type="submit" name="subs">Descending + Ascending</button>
+            </form>
+            <?php
+              if(isset($_POST['subs']))
+              {
+                $ca1 = $_POST['cat1'];
+                $ca2 = $_POST['cat2'];
+
+                $squery = "SELECT * FROM products ORDER BY $ca1 DESC, $ca2 ASC";
+                $execut = mysqli_query($connection, $squery);
+
+                if($execut){
+                    while($row=mysqli_fetch_assoc($execut)){
+                        $prdame = $row['ProductID'];
+
+                        echo "<p class='prdName'>$prdame</p>";
+                    }
+                }
+
+              }
+            ?>
         
         </div>
     </div>
