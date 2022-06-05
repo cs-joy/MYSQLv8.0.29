@@ -380,6 +380,8 @@ if (isset($_POST['create'])) {
                 <hr />
                 <li>
                     <h5>Combining AND, OR and NOT</h5>
+                <li>
+                    <h6>AND OR Syntax</h6>
                     <form action="index.php" method="post">
                         <label for="productID">ProductID</label>
                         <input type="text" name="productid" required>
@@ -406,6 +408,36 @@ if (isset($_POST['create'])) {
                         }
                     }
                     ?>
+                </li>
+                <li>
+                    <h6>AND NOT Syntax</h6>
+                    <form action="index.php" method="post">
+                        <label for="PID">ProductID</label>
+                        <input type="text" name="PID" required>
+                        <label for="productCode">ProductCODE</label>
+                        <input type="text" name="productCode" required>
+
+                        <button type="submit" name="search_code">Search</button>
+                    </form>
+
+                    <?php
+                    if (isset($_POST['search_code'])) {
+                        $pID = $_POST['PID'];
+                        $ProductCode = $_POST['productCode'];
+
+                        $s_query = "SELECT * FROM products WHERE NOT ProductID='$pID' AND NOT ProductCODE='$ProductCode'";
+
+                        $result = mysqli_query($connection, $s_query);
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $pName = $row['ProductName'];
+
+                                echo "<h6 id='pro'>$pName</h6>";
+                            }
+                        }
+                    }
+                    ?>
+                </li>
                 </li>
             </ul>
         </div>
