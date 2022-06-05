@@ -135,6 +135,8 @@ if (isset($_POST['create'])) {
                 <input type="text" name="Unit" required>
                 <label>Price</label>
                 <input type="text" name="Price" required>
+                <label>ProductCode</label>
+                <input type="text" name="productCode" required>
 
                 <input type="submit" name="sign" value="Submit">
             </form>
@@ -146,10 +148,11 @@ if (isset($_POST['create'])) {
                 $cID = $_POST['CategoryID'];
                 $unit = $_POST['Unit'];
                 $price = $_POST['Price'];
+                $ProductCODE = $_POST['productCode'];
 
-                $query = "INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
+                $query = "INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price, ProductCODE) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $stmtselect = $connection->prepare($query);
-                $exe = $stmtselect->execute([$pID, $pName, $sID, $cID, $unit, $price]);
+                $exe = $stmtselect->execute([$pID, $pName, $sID, $cID, $unit, $price, $ProductCODE]);
 
                 if ($exe) {
                     echo "data submitted";
@@ -220,8 +223,8 @@ if (isset($_POST['create'])) {
               if(isset($_POST['searc'])){
                 $search = $_POST['sear'];
 
-                $sql = "SELECT * FROM products WHERE ProductName LIKE '$search%' "; // Search
-                
+                //$sql = "SELECT * FROM products WHERE ProductName LIKE '$search%' "; // Search
+                $sql = "SELECT * FROM products WHERE ProductCODE LIKE '%\_$search%' ";
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
                     while ($row = mysqli_fetch_assoc($execution)) {
