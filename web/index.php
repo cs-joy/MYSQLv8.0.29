@@ -44,6 +44,7 @@ if (isset($_POST['create'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYSQL Database Management</title>
+    <link type="text/css" rel="stylesheet" href="./css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
@@ -179,12 +180,12 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="betRange">Find</button>
             </form>
             <?php
-              if(isset($_POST['betRange'])){
+            if (isset($_POST['betRange'])) {
                 $fbet = $_POST['betF'];
                 $sbet = $_POST['betFt'];
 
                 $sql = "SELECT * FROM products WHERE Price BETWEEN '$fbet' AND '$sbet'"; // Between a certain range
-                
+
                 $execution = mysqli_query($connection, $sql);
                 if ($execution) {
                     while ($row = mysqli_fetch_assoc($execution)) {
@@ -194,8 +195,7 @@ if (isset($_POST['create'])) {
                         echo "<h4>$name</h4>";
                     }
                 }
-
-              }
+            }
             ?>
             <?php
             if (isset($_POST['prange'])) {
@@ -222,7 +222,7 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="searc">search</button>
             </form>
             <?php
-              if(isset($_POST['searc'])){
+            if (isset($_POST['searc'])) {
                 $search = $_POST['sear'];
 
                 //$sql = "SELECT * FROM products WHERE ProductName LIKE '$search%' "; // Search
@@ -236,8 +236,7 @@ if (isset($_POST['create'])) {
                         echo "<h4>$name</h4>";
                     }
                 }
-
-              }
+            }
             ?>
             <hr />
 
@@ -250,13 +249,13 @@ if (isset($_POST['create'])) {
             </form>
             <?php
 
-            if(isset($_POST['in_operator'])){
+            if (isset($_POST['in_operator'])) {
                 $in_op = $_POST['in'];
 
                 $sql = "SELECT * FROM products WHERE Price IN ($in_op)";
                 $execution = mysqli_query($connection, $sql);
-                if($execution){
-                    while($row=mysqli_fetch_assoc($execution)){
+                if ($execution) {
+                    while ($row = mysqli_fetch_assoc($execution)) {
                         $pName = $row['ProductName'];
 
                         echo "<h4>$pName</h4>";
@@ -288,6 +287,97 @@ if (isset($_POST['create'])) {
                 <input type="text" name="tableN">
                 <button type="submit" name="remove">Delete Table</button>
             </form>
+            <hr />
+            <hr />
+            <h3>MySQL AND, OR and NOT Operators</h3>
+            <hr />
+            <ul>
+                <li>
+                    <h5>AND Syntax</h5>
+                    <form action="index.php" method="post">
+                        <label for="cID">CategoryID</label>
+                        <input type="text" name="cID" required>
+                        <label for="pPrice">ProductPrice</label>
+                        <input type="text" name="pPrice" required>
+
+                        <button type="submit" name="searching">Searching</button>
+                    </form>
+                    <?php
+                      if(isset($_POST['searching'])){
+                          $catID = $_POST['cID'];
+                          $prPrice = $_POST['pPrice'];
+
+                        $sql = "SELECT * FROM products WHERE CategoryID='$catID' AND Price='$prPrice'";
+                        $result = mysqli_query($connection, $sql);
+                        if($result){
+                            while($row=mysqli_fetch_assoc($result)){
+                              $pName = $row['ProductName'];
+
+                              echo "<h6 class='hi'>$pName</h6>";
+                            }
+                        }
+                    }
+                    ?>
+                    
+                </li>
+                <li>
+                    <h5>OR Syntax</h5>
+                    <form action="index.php" method="post">
+                        <label for="cID">CategoryID</label>
+                        <input type="text" name="cID" required>
+                        <label for="pPrice">ProductPrice</label>
+                        <input type="text" name="pPrice" required>
+
+                        <button type="submit" name="searching">Searching</button>
+                    </form>
+                   
+                    <?php
+                      if(isset($_POST['searching'])){
+                          $catID = $_POST['cID'];
+                          $prPrice = $_POST['pPrice'];
+
+                        $sql = "SELECT * FROM products WHERE CategoryID='$catID' OR Price='$prPrice'";
+                        // $sql = "SELECT * FROM products WHERE CategoryID='$catID' OR CategoryID='8' OR Price='$prPrice'";
+                        $result = mysqli_query($connection, $sql);
+                        if($result){
+                            while($row=mysqli_fetch_assoc($result)){
+                              $pName = $row['ProductName'];
+
+                              echo "<h6 class='hi'>$pName</h6>";
+                            }
+                        }
+                    }
+                    ?>
+                    
+                </li>
+                <li>
+                    <h5>NOT Syntax</h5>
+                    <form action="index.php" method="post">
+                        <label for="cID">CategoryID</label>
+                        <input type="text" name="cID" required>
+
+                        <button type="submit" name="searchin">Searching</button>
+                    </form>
+                   
+                    <?php
+                      if(isset($_POST['searchin'])){
+                          $catID = $_POST['cID'];
+
+                        $xql = "SELECT * FROM products WHERE NOT CategoryID='$catID'";
+                        
+                        $result = mysqli_query($connection, $xql);
+                        if($result){
+                            while($row=mysqli_fetch_assoc($result)){
+                              $pName = $row['ProductName'];
+
+                              echo "<h6 class='hi'>$pName</h6>";
+                            }
+                        }
+                    }
+                    ?>
+                    
+                </li>
+            </ul>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
