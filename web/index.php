@@ -441,6 +441,57 @@ if (isset($_POST['create'])) {
                 </li>
                 </li>
             </ul>
+
+            <h3 class="keyword">MySQL ORDER BY Keyword</h3>
+            <form action="index.php" method="post">
+                <label for="categid">Column Name</label>
+                <input type="text" name="categid" required>
+
+                <button type="submit" name="sub_asc">Ascending</button>
+            </form>
+            <?php
+              if(isset($_POST['sub_asc']))
+              {
+                $categid = $_POST['categid'];
+
+                $x_query = "SELECT * FROM products ORDER BY $categid";
+                $xecute = mysqli_query($connection, $x_query);
+
+                if($xecute){
+                    while($row=mysqli_fetch_assoc($xecute)){
+                        $prdName = $row['Price'];
+
+                        echo "<p class='prdName'>$prdName</p>";
+                    }
+                }
+
+              }
+            ?>
+            <hr />
+            <form action="index.php" method="post">
+                <label for="categi">Column Name</label>
+                <input type="text" name="categi" required>
+
+                <button type="submit" name="sub_as">Descending</button>
+            </form>
+            <?php
+              if(isset($_POST['sub_as']))
+              {
+                $categ = $_POST['categi'];
+
+                $sq_query = "SELECT * FROM products ORDER BY $categ DESC";
+                $xecut = mysqli_query($connection, $sq_query);
+
+                if($xecut){
+                    while($row=mysqli_fetch_assoc($xecut)){
+                        $prdame = $row['Price'];
+
+                        echo "<p class='prdName'>$prdame</p>";
+                    }
+                }
+
+              }
+            ?>
         
         </div>
     </div>

@@ -5,3 +5,12 @@
 #pro {
     color: burlywood;
 }
+
+.keyword {
+    color: brown;
+    font-size: 25px;
+}
+
+.prdName {
+    color: brown
+}
