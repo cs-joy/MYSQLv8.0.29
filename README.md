@@ -27,6 +27,36 @@ In this implementation, cloud users can upload a machine image of their own with
 ### MySQL as a service
 Some cloud platforms offer MySQL "as a service". In this configuration, application owners do not have to install and maintain the MySQL database on their own. Instead, the database service provider takes responsibility for installing and maintaining the database, and application owners pay according to their usage. Notable cloud-based MySQL services are the Amazon Relational Database Service; Oracle MySQL Cloud Service, Azure Database for MySQL, Rackspace; HP Converged Cloud; Heroku and Jelastic. In this model the database service provider takes responsibility for maintaining the host and database.
 
+## User interfaces
+
+### Graphical user interfaces
+A graphical user interface (GUI) is a type of interface that allows users to interact with electronic devices or programs through graphical icons and visual indicators such as secondary notation, as opposed to text-based interfaces, typed command labels or text navigation.
+
+Third-party proprietary and free graphical administration applications (or "front ends") are available that integrate with MySQL and enable users to work with database structure and data visually.
+
+
+MySQL Workbench running on macOS
+MySQL Workbench
+Main article: MySQL Workbench
+MySQL Workbench is the integrated environment for MySQL. It was developed by MySQL AB, and enables users to graphically administer MySQL databases and visually design database structures.
+
+MySQL Workbench is available in three editions, the regular free and open source Community Edition which may be downloaded from the MySQL website, and the proprietary Standard Edition which extends and improves the feature set of the Community Edition, and the MySQL Cluster CGE.
+
+### Other GUI tools
+Adminer
+Database Workbench
+DBeaver
+DBEdit
+HeidiSQL
+LibreOffice Base
+Navicat
+OpenOffice.org Base
+phpMyAdmin
+SQLBuddy
+SQLyog
+Toad for MySQL
+Webmin
+
 ### Command-line interfaces
 A command-line interface is a means of interacting with a computer program where the user issues commands to the program by typing in successive lines of text (command lines). MySQL ships with many command line tools, from which the main interface is the mysql client.
 
