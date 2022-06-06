@@ -27,3 +27,16 @@ In this implementation, cloud users can upload a machine image of their own with
 ### MySQL as a service
 Some cloud platforms offer MySQL "as a service". In this configuration, application owners do not have to install and maintain the MySQL database on their own. Instead, the database service provider takes responsibility for installing and maintaining the database, and application owners pay according to their usage. Notable cloud-based MySQL services are the Amazon Relational Database Service; Oracle MySQL Cloud Service, Azure Database for MySQL, Rackspace; HP Converged Cloud; Heroku and Jelastic. In this model the database service provider takes responsibility for maintaining the host and database.
 
+### Command-line interfaces
+A command-line interface is a means of interacting with a computer program where the user issues commands to the program by typing in successive lines of text (command lines). MySQL ships with many command line tools, from which the main interface is the mysql client.
+
+MySQL Utilities is a set of utilities designed to perform common maintenance and administrative tasks. Originally included as part of the MySQL Workbench, the utilities are a stand-alone download available from Oracle.
+
+Percona Toolkit is a cross-platform toolkit for MySQL, developed in Perl.[106] Percona Toolkit can be used to prove replication is working correctly, fix corrupted data, automate repetitive tasks, and speed up servers. Percona Toolkit is included with several Linux distributions such as CentOS and Debian, and packages are available for Fedora and Ubuntu as well. Percona Toolkit was originally developed as Maatkit, but as of late 2011, Maatkit is no longer developed.
+
+MySQL shell is a tool for interactive use and administration of the MySQL database. It supports JavaScript, Python or SQL modes and it can be used for administration and access purposes.
+
+### Application programming interfaces
+Many programming languages with language-specific APIs include libraries for accessing MySQL databases. These include MySQL Connector/Net for .NET/CLI Languages, and the JDBC driver for Java.
+
+In addition, an ODBC interface called MySQL Connector/ODBC allows additional programming languages that support the ODBC interface to communicate with a MySQL database, such as ASP or ColdFusion. The HTSQL – URL-based query method also ships with a MySQL adapter, allowing direct interaction between a MySQL database and any web client via structured URLs. Other drivers exists for languages like Python or Node.js.
