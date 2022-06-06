@@ -70,3 +70,23 @@ MySQL shell is a tool for interactive use and administration of the MySQL databa
 Many programming languages with language-specific APIs include libraries for accessing MySQL databases. These include MySQL Connector/Net for .NET/CLI Languages, and the JDBC driver for Java.
 
 In addition, an ODBC interface called MySQL Connector/ODBC allows additional programming languages that support the ODBC interface to communicate with a MySQL database, such as ASP or ColdFusion. The HTSQL – URL-based query method also ships with a MySQL adapter, allowing direct interaction between a MySQL database and any web client via structured URLs. Other drivers exists for languages like Python or Node.js.
+
+### Project forks
+A variety of MySQL forks exist, including the following.
+
+### Current
+#### MariaDB
+MariaDB is a community-developed fork of the MySQL relational database management system intended to remain free under the GNU GPL. The fork has been led by the original developers of MySQL, who forked it due to concerns over its acquisition by Oracle.[33]
+
+#### Percona Server for MySQL
+Percona Server for MySQL, forked by Percona, aims to retain close compatibility to the official MySQL releases.[112] Also included in Percona Server for MySQL is XtraDB, Percona's fork of the InnoDB Storage Engine.[113]
+
+### Abandoned
+####Drizzle
+Drizzle was a free software/open source relational database management system (DBMS) that was forked from the now-defunct 6.0 development branch of the MySQL DBMS. Like MySQL, Drizzle had a client/server architecture and uses SQL as its primary command language. Drizzle was distributed under version 2 and 3 of the GNU General Public License (GPL) with portions, including the protocol drivers and replication messaging under the BSD license.
+
+#### WebScaleSQL
+WebScaleSQL was a software branch of MySQL 5.6, and was announced on 27 March 2014 by Facebook, Google, LinkedIn and Twitter as a joint effort to provide a centralized development structure for extending MySQL with new features specific to its large-scale deployments, such as building large replicated databases running on server farms. Thus, WebScaleSQL opened a path toward deduplicating the efforts each company had been putting into maintaining its own branch of MySQL, and toward bringing together more developers. By combining the efforts of these companies and incorporating various changes and new features into MySQL, WebScaleSQL aimed at supporting the deployment of MySQL in large-scale environments.[115][116] The project's source code is licensed under version 2 of the GNU General Public License, and is hosted on GitHub.
+
+#### OurDelta
+The OurDelta distribution, created by the Australian company Open Query (later acquired by Catalyst IT Australia), had two versions: 5.0, which was based on MySQL, and 5.1, which was based on MariaDB. It included patches developed by Open Query and by other notable members of the MySQL community including Jeremy Cole and Google. Once the patches were incorporated into the MariaDB mainline, OurDelta's objectives were achieved and OurDelta passed on its build and packaging toolchain to Monty Program (now MariaDB Corp).
