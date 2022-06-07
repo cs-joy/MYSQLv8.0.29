@@ -80,10 +80,9 @@ if ($connection->connect_error) {
 
           if ($execution_result) {
             while ($data = mysqli_fetch_assoc($execution_result)) {
-                $im = $data['filename'];
+                $img = $data['filename'];
 
-                echo "<img src=image/$im />";
-                echo "<br />";
+                echo "<img src=image/$img />";
             }
           }
         ?>
