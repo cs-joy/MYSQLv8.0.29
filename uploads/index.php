@@ -34,7 +34,7 @@ if ($connection->connect_error) {
     <div id="content">
         <form action="index.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="file" class="form-control" name="uploadfile" value="" />
+                <input type="file" class="form-control" name="uploadfile" value="" required/>
 
                 <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
 
