@@ -35,6 +35,33 @@ if($connection->connect_error){
                 <input type="file" class="form-control" name="uploadfile" value="" />
 
                 <button class="btn btn-primary" type="submit" name="upload" >UPLOAD</button>
+
+                <?php
+error_reporting(0);
+ 
+$msg = "";
+ 
+// If upload button is clicked ...
+if (isset($_POST['upload'])) {
+ 
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./image/" . $filename;
+ 
+    // Get all the submitted data from the form
+    $sql = "INSERT INTO images (filename) VALUES ('$filename')";
+ 
+    // Execute query
+    mysqli_query($connection, $sql);
+ 
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
+    }
+}
+?>
                 
             </div>
         </form>
@@ -45,10 +72,12 @@ if($connection->connect_error){
         $query = "SELECT * FROM images";
         $execution_result = mysqli_query($connection, $query);
 
-        while($data = mysqli_fetch_assoc($execution_result)){
-        ?>
-        <img src="image/<?php echo $data['filename']; ?>">
-        <?php
+        if($execution_result){
+            while($data = mysqli_fetch_assoc($execution_result)){
+                $im = $data['filename'];
+
+                echo "<img src=image/$im />";
+            }
         }
         ?>
     </div>
