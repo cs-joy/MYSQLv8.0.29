@@ -1,3 +1,25 @@
+
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$server = $_SERVER['SERVER'];
+$user = $_SERVER['USERNAME'];
+$password = $_SERVER['PASSWORD'];
+$db = $_SERVER['DATABASE'];
+
+$connect = new mysqli($server, $user, $password, $db);
+
+if ($connect->connect_error) {
+    echo "Connenction failed: " . $connect->connect_error;
+}
+
+
+?>
+
 <?php
 $target_dir = "imgup/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -46,4 +68,5 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+
 ?>
