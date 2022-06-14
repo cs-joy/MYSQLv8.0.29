@@ -1,7 +1,7 @@
 ### Some Basic Operations with MySQL
 Here are some basic operations with the MySQL server. SQL Statements explains in detail the rich syntax and functionality of the SQL statements that are illustrated below.
 
-Showing existing databases.  Use a SHOW DATABASES statement:
+### Showing existing databases.  Use a SHOW DATABASES statement:
 ```mysql
 mysql> SHOW DATABASES;
 +--------------------+
@@ -14,11 +14,12 @@ mysql> SHOW DATABASES;
 +--------------------+
 4 rows in set (0.00 sec)
 ```
-### Creating a new database.  Use a CREATE DATABASE statement:
-
+### Creating a new database.
+Use a CREATE DATABASE statement:
+```mysql
 mysql> CREATE DATABASE pets;
 Query OK, 1 row affected (0.01 sec)
-
+```
 Check if the database has been created:
 ```mysql
 mysql> SHOW DATABASES;
@@ -33,10 +34,12 @@ mysql> SHOW DATABASES;
 +--------------------+
 5 rows in set (0.00 sec)
 ```
-Creating a table inside a database.  First, pick the database in which you want to create the table with a USE statement:
-
+### Creating a table inside a database.
+First, pick the database in which you want to create the table with a USE statement:
+```mysql
 mysql> USE pets
 Database changed
+```
 The USE statement tells MySQL to use pets as the default database for subsequent statements. Next, create a table with a CREATE TABLE statement:
 ```mysql
 CREATE TABLE cats
@@ -73,7 +76,8 @@ mysql> DESCRIBE cats;
 +-------+------------------+------+-----+---------+----------------+
 4 rows in set (0.00 sec)
 ```
-Adding records into a table.  Use, for example, an INSERT...VALUES statement:
+### Adding records into a table.
+Use, for example, an INSERT...VALUES statement:
 ```mysql
 INSERT INTO cats ( name, owner, birth) VALUES
   ( 'Sandy', 'Lennon', '2015-01-03' ),
@@ -82,7 +86,8 @@ INSERT INTO cats ( name, owner, birth) VALUES
   ```
 See Literal Values for how to write string, date, and other kinds of literals in MySQL.
 
-Retrieving records from a table.  Use a SELECT statement, and “*” to match all columns:
+### Retrieving records from a table.
+Use a SELECT statement, and “*” to match all columns:
 
 mysql> SELECT * FROM cats;
 +----+---------+--------+------------+
@@ -103,7 +108,8 @@ mysql> SELECT name FROM cats WHERE owner = 'Casey';
 +--------+
 1 row in set (0.00 sec)
 ```
-Deleting a record from a table.  Use a DELETE statement to delete a record from a table, specifying the criterion for deletion with the WHERE clause:
+### Deleting a record from a table.
+Use a DELETE statement to delete a record from a table, specifying the criterion for deletion with the WHERE clause:
 ```mysql
 mysql> DELETE FROM cats WHERE name='Cookie';
 Query OK, 1 row affected (0.05 sec)
@@ -118,7 +124,8 @@ mysql> SELECT * FROM cats;
 +----+---------+--------+------------+
 2 rows in set (0.00 sec)
 ```
-Adding or deleting a column from a table.  Use an ALTER TABLE...ADD statement to add a column. You can use, for example, an AFTER clause to specify the location of the new column:
+### Adding or deleting a column from a table.
+Use an ALTER TABLE...ADD statement to add a column. You can use, for example, an AFTER clause to specify the location of the new column:
 ```mysql
 mysql> ALTER TABLE cats ADD gender CHAR(1) AFTER name;
 Query OK, 0 rows affected (0.24 sec)
@@ -171,9 +178,9 @@ mysql> DESCRIBE cats;
 +-------+------------------+------+-----+---------+----------------+
 4 rows in set (0.00 sec)
 ```
-See the Tutorial for more instructions on how to work with the MySQL server.
+See the [Tutorial](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) for more instructions on how to work with the MySQL server.
 
-Other Important Tasks to Perform
-Create more user accounts.  root is a superuser account for administration of the MySQL server which should not be used for general operations. On how to create user accounts of various kinds, see Adding Accounts, Assigning Privileges, and Dropping Accounts.
+### Other Important Tasks to Perform
+Create more user accounts.  root is a superuser account for administration of the MySQL server which should not be used for general operations. On how to create user accounts of various kinds, see [Adding Accounts, Assigning Privileges, and Dropping Accounts](https://dev.mysql.com/doc/refman/8.0/en/creating-accounts.html).
 
-Configure MySQL to be managed with systemd.  If you have installed MySQL on a systemd platform using generic binaries and want it to be managed with systemd, see Managing MySQL Server with systemd.
+Configure MySQL to be managed with systemd.  If you have installed MySQL on a systemd platform using generic binaries and want it to be managed with systemd, see [Managing MySQL Server with systemd](https://dev.mysql.com/doc/refman/8.0/en/using-systemd.html).
