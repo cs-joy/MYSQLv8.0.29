@@ -94,7 +94,7 @@ mysql> SELECT * FROM cats;
 +----+---------+--------+------------+
 3 rows in set (0.00 sec)
 To select specific columns and rows by a certain condition using the WHERE clause:
-
+```mysql
 mysql> SELECT name FROM cats WHERE owner = 'Casey';
 +--------+
 | name   |
@@ -102,11 +102,13 @@ mysql> SELECT name FROM cats WHERE owner = 'Casey';
 | Cookie |
 +--------+
 1 row in set (0.00 sec)
+```
 Deleting a record from a table.  Use a DELETE statement to delete a record from a table, specifying the criterion for deletion with the WHERE clause:
-
+```mysql
 mysql> DELETE FROM cats WHERE name='Cookie';
 Query OK, 1 row affected (0.05 sec)
-
+```
+```mysql
 mysql> SELECT * FROM cats;
 +----+---------+--------+------------+
 | id | name    | owner  | birth      |
@@ -115,13 +117,15 @@ mysql> SELECT * FROM cats;
 |  3 | Charlie | River  | 2016-05-21 |
 +----+---------+--------+------------+
 2 rows in set (0.00 sec)
+```
 Adding or deleting a column from a table.  Use an ALTER TABLE...ADD statement to add a column. You can use, for example, an AFTER clause to specify the location of the new column:
-
+```mysql
 mysql> ALTER TABLE cats ADD gender CHAR(1) AFTER name;
 Query OK, 0 rows affected (0.24 sec)
 Records: 0  Duplicates: 0  Warnings: 0
+```
 Use DESCRIBE to check the result:
-
+```mysql
 mysql> DESCRIBE cats;
 +--------+------------------+------+-----+---------+----------------+
 | Field  | Type             | Null | Key | Default | Extra          |
@@ -133,8 +137,9 @@ mysql> DESCRIBE cats;
 | birth  | date             | NO   |     | NULL    |                |
 +--------+------------------+------+-----+---------+----------------+
 5 rows in set (0.00 sec)
+```
 SHOW CREATE TABLE shows a CREATE TABLE statement, which provides even more details on the table:
-
+```mysql
 mysql> SHOW CREATE TABLE cats\G
 *************************** 1. row ***************************
        Table: cats
@@ -147,12 +152,14 @@ Create Table: CREATE TABLE `cats` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
 1 row in set (0.00 sec)
+```
 Use ALTER TABLE...DROP to delete a column:
-
+```mysql
 mysql> ALTER TABLE cats DROP gender;
 Query OK, 0 rows affected (0.19 sec)
 Records: 0  Duplicates: 0  Warnings: 0
-
+```
+```mysql
 mysql> DESCRIBE cats;
 +-------+------------------+------+-----+---------+----------------+
 | Field | Type             | Null | Key | Default | Extra          |
@@ -163,6 +170,7 @@ mysql> DESCRIBE cats;
 | birth | date             | NO   |     | NULL    |                |
 +-------+------------------+------+-----+---------+----------------+
 4 rows in set (0.00 sec)
+```
 See the Tutorial for more instructions on how to work with the MySQL server.
 
 Other Important Tasks to Perform
