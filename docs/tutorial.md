@@ -38,7 +38,7 @@ Creating a table inside a database.  First, pick the database in which you want 
 mysql> USE pets
 Database changed
 The USE statement tells MySQL to use pets as the default database for subsequent statements. Next, create a table with a CREATE TABLE statement:
-
+```mysql
 CREATE TABLE cats
 (
   id              INT unsigned NOT NULL AUTO_INCREMENT, # Unique ID for the record
@@ -47,11 +47,11 @@ CREATE TABLE cats
   birth           DATE NOT NULL,                        # Birthday of the cat
   PRIMARY KEY     (id)                                  # Make the id the primary key
 );
-
+```
 Data types you can use in each column are explained in Data Types. Primary Key Optimization explains the concept of a primary key. What follows a # on each line is a comment, which is ignored by the mysql client; see Comments for other comment styles.
 
 Check if the table has been created with a SHOW TABLES statement:
-
+```mysql
 mysql> SHOW TABLES;
 +----------------+
 | Tables_in_pets |
@@ -59,8 +59,9 @@ mysql> SHOW TABLES;
 | cats           |
 +----------------+
 1 row in set (0.00 sec)
+```
 DESCRIBE shows information on all columns of a table:
-
+```mysql
 mysql> DESCRIBE cats;
 +-------+------------------+------+-----+---------+----------------+
 | Field | Type             | Null | Key | Default | Extra          |
@@ -71,12 +72,14 @@ mysql> DESCRIBE cats;
 | birth | date             | NO   |     | NULL    |                |
 +-------+------------------+------+-----+---------+----------------+
 4 rows in set (0.00 sec)
+```
 Adding records into a table.  Use, for example, an INSERT...VALUES statement:
-
+```mysql
 INSERT INTO cats ( name, owner, birth) VALUES
   ( 'Sandy', 'Lennon', '2015-01-03' ),
   ( 'Cookie', 'Casey', '2013-11-13' ),
   ( 'Charlie', 'River', '2016-05-21' );
+  ```
 See Literal Values for how to write string, date, and other kinds of literals in MySQL.
 
 Retrieving records from a table.  Use a SELECT statement, and “*” to match all columns:
