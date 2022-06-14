@@ -1,3 +1,10 @@
+## Creating and Using a Database
+
+- [Creating and Selecting a Database](https://github.com/cs-joy/MYSQLv8.0.29/blob/main/docs/creating_and_selectingDB.md)
+- [Creating a Table](
+- [Loading Data into a Table](
+- [Retrieving Information from a Table](
+
 Once you know how to enter SQL statements, you are ready to access a database.
 
 Suppose that you have several pets in your home (your menagerie) and you would like to keep track of various types of information about them. You can do so by creating tables to hold your data and loading them with the desired information. Then you can answer different sorts of questions about your animals by retrieving data from the tables. This section shows you how to perform the following operations:
