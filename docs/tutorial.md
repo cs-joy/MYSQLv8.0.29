@@ -2,7 +2,7 @@
 Here are some basic operations with the MySQL server. SQL Statements explains in detail the rich syntax and functionality of the SQL statements that are illustrated below.
 
 Showing existing databases.  Use a SHOW DATABASES statement:
-
+```mysql
 mysql> SHOW DATABASES;
 +--------------------+
 | Database           |
@@ -13,14 +13,14 @@ mysql> SHOW DATABASES;
 | sys                |
 +--------------------+
 4 rows in set (0.00 sec)
-
+```
 ### Creating a new database.  Use a CREATE DATABASE statement:
 
 mysql> CREATE DATABASE pets;
 Query OK, 1 row affected (0.01 sec)
 
 Check if the database has been created:
-
+```mysql
 mysql> SHOW DATABASES;
 +--------------------+
 | Database           |
@@ -32,7 +32,7 @@ mysql> SHOW DATABASES;
 | sys                |
 +--------------------+
 5 rows in set (0.00 sec)
-
+```
 Creating a table inside a database.  First, pick the database in which you want to create the table with a USE statement:
 
 mysql> USE pets
