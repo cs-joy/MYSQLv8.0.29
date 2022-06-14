@@ -48,3 +48,5 @@ You can use the test database (if you have access to it) for the examples that f
 mysql> GRANT ALL ON menagerie.* TO 'your_mysql_name'@'your_client_host';
 ```
 where your_mysql_name is the MySQL user name assigned to you and your_client_host is the host from which you connect to the server.
+
+s: https://dev.mysql.com/doc/refman/8.0/en/retrieving-data.html
