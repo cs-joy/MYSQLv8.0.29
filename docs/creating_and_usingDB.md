@@ -1,7 +1,7 @@
 ## Creating and Using a Database
 
 - [Creating and Selecting a Database](https://github.com/cs-joy/MYSQLv8.0.29/blob/main/docs/creating_and_selectingDB.md)
-- [Creating a Table](
+- [Creating a Table](https://github.com/cs-joy/MYSQLv8.0.29/edit/main/docs/creating_table.md)
 - [Loading Data into a Table](
 - [Retrieving Information from a Table](
 
