@@ -180,7 +180,9 @@ mysql> DESCRIBE cats;
 ```
 See the [Tutorial](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html) for more instructions on how to work with the MySQL server.
 
-### Other Important Tasks to Perform
-Create more user accounts.  root is a superuser account for administration of the MySQL server which should not be used for general operations. On how to create user accounts of various kinds, see [Adding Accounts, Assigning Privileges, and Dropping Accounts](https://dev.mysql.com/doc/refman/8.0/en/creating-accounts.html).
+## Other Important Tasks to Perform
+### Create more user accounts.
+`root` is a superuser account for administration of the MySQL server which should not be used for general operations. On how to create user accounts of various kinds, see [Adding Accounts, Assigning Privileges, and Dropping Accounts](https://dev.mysql.com/doc/refman/8.0/en/creating-accounts.html).
 
-Configure MySQL to be managed with systemd.  If you have installed MySQL on a systemd platform using generic binaries and want it to be managed with systemd, see [Managing MySQL Server with systemd](https://dev.mysql.com/doc/refman/8.0/en/using-systemd.html).
+### Configure MySQL to be managed with systemd.
+If you have installed MySQL on a systemd platform using generic binaries and want it to be managed with systemd, see [Managing MySQL Server with systemd](https://dev.mysql.com/doc/refman/8.0/en/using-systemd.html).
