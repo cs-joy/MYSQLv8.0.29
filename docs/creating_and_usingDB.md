@@ -2,7 +2,7 @@
 
 - [Creating and Selecting a Database](https://github.com/cs-joy/MYSQLv8.0.29/blob/main/docs/creating_and_selectingDB.md)
 - [Creating a Table](https://github.com/cs-joy/MYSQLv8.0.29/blob/main/docs/creating_table.md)
-- [Loading Data into a Table](
+- [Loading Data into a Table](https://github.com/cs-joy/MYSQLv8.0.29/blob/main/docs/loading_table.md)
 - [Retrieving Information from a Table](
 
 Once you know how to enter SQL statements, you are ready to access a database.
