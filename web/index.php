@@ -612,61 +612,7 @@ if (isset($_POST['create'])) {
                 }
             }
             ?>
-            <div class="update">
-                <hr id="hrline" />
-                <h3 id="nest">UPDATE</h3>
-
-                <form action="index.php" method="post">
-                    <label for="condition">Condition</label>
-                    <input type="text" class="form-color" name="condition">
-                    <label for="con_value">Value</label>
-                    <input type="text" class="form-color" name="con_value">
-                    <br />
-                    <br />
-                    <label for="table_name">Table</label>
-                    <input type="text" class="form-color" name="table_name">
-
-                    <label for="column_name1">Column1</label>
-                    <input type="text" class="form-color" name="column_name1">
-                    <label for="column_name2">Column2</label>
-                    <input type="text" class="form-color" name="column_name2">
-
-                    <label for="column_value1">Value1</label>
-                    <input type="text" class="form-color" name="column_value1">
-                    <label for="column_value2">Value2</label>
-                    <input type="text" class="form-color" name="column_value2">
-
-
-                    <button type="submit" class="form-color" name="update">Submit</button>
-                </form>
-                <hr class="hrlin" />
-                <?php
-                if (isset($_POST['update'])) {
-                    //table name
-                    $tName = $_POST['table_name'];
-
-                    $condition = $_POST['condition'];
-                    $con_value = $_POST['con_value'];
-
-                    //column name
-                    $cName1 = $_POST['column_name1'];
-                    $cName2 = $_POST['column_name2'];
-
-                    //column value
-                    $cValue1 = $_POST['column_value1'];
-                    $cValue2 = $_POST['column_value2'];
-
-                    $sql_update = "UPDATE $tName SET $cName1 = '$cValue1', $cName2= '$cValue2' WHERE $condition= '$con_value'";
-
-                    $result = mysqli_query($connection, $sql_update);
-                    if ($result) {
-                        echo "Successfully updated those values";
-                    } else {
-                        echo "Please try again!";
-                    }
-                }
-                ?>
-            </div>
+            
             <div class="update">
                 <hr id="hrline" />
                 <h3 id="nest">NULL > IS NULL</h3>
@@ -763,6 +709,116 @@ if (isset($_POST['create'])) {
                           echo "<h4>$e</h4>\n";
                          
                         }
+                    }
+                }
+                ?>
+            </div>
+            <div class="update">
+                <hr id="hrline" />
+                <h3 id="nest">UPDATE</h3>
+
+                <form action="index.php" method="post">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-color" name="condition">
+                    <label for="con_value">Value</label>
+                    <input type="text" class="form-color" name="con_value">
+                    <br />
+                    <br />
+                    <label for="table_name">Table</label>
+                    <input type="text" class="form-color" name="table_name">
+
+                    <label for="column_name1">Column1</label>
+                    <input type="text" class="form-color" name="column_name1">
+                    <label for="column_name2">Column2</label>
+                    <input type="text" class="form-color" name="column_name2">
+
+                    <label for="column_value1">Value1</label>
+                    <input type="text" class="form-color" name="column_value1">
+                    <label for="column_value2">Value2</label>
+                    <input type="text" class="form-color" name="column_value2">
+
+
+                    <button type="submit" class="form-color" name="update">Submit</button>
+                </form>
+                <hr class="hrlin" />
+                <?php
+                if (isset($_POST['update'])) {
+                    //table name
+                    $tName = $_POST['table_name'];
+
+                    $condition = $_POST['condition'];
+                    $con_value = $_POST['con_value'];
+
+                    //column name
+                    $cName1 = $_POST['column_name1'];
+                    $cName2 = $_POST['column_name2'];
+
+                    //column value
+                    $cValue1 = $_POST['column_value1'];
+                    $cValue2 = $_POST['column_value2'];
+
+                    $sql_update = "UPDATE $tName SET $cName1 = '$cValue1', $cName2= '$cValue2' WHERE $condition= '$con_value'";
+
+                    $result = mysqli_query($connection, $sql_update);
+                    if ($result) {
+                        echo "Successfully updated those values";
+                    } else {
+                        echo "Please try again!";
+                    }
+                }
+                ?>
+            </div>
+            <div class="update">
+                <hr id="hrline" />
+                <h3 id="nest">UPDATE Multiple Records</h3>
+
+                <form action="index.php" method="post">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-color" name="condition">
+                    <label for="con_value">Value</label>
+                    <input type="text" class="form-color" name="con_value">
+                    <br />
+                    <br />
+                    <label for="table_name">Table</label>
+                    <input type="text" class="form-color" name="table_name">
+
+                    <label for="column_name1">Column1</label>
+                    <input type="text" class="form-color" name="column_name1">
+                    <label for="column_name2">Column2</label>
+                    <input type="text" class="form-color" name="column_name2">
+
+                    <label for="column_value1">Value1</label>
+                    <input type="text" class="form-color" name="column_value1">
+                    <label for="column_value2">Value2</label>
+                    <input type="text" class="form-color" name="column_value2">
+
+
+                    <button type="submit" class="form-color" name="update">Submit</button>
+                </form>
+                <hr class="hrlin" />
+                <?php
+                if (isset($_POST['update'])) {
+                    //table name
+                    $tName = $_POST['table_name'];
+
+                    $condition = $_POST['condition'];
+                    $con_value = $_POST['con_value'];
+
+                    //column name
+                    $cName1 = $_POST['column_name1'];
+                    $cName2 = $_POST['column_name2'];
+
+                    //column value
+                    $cValue1 = $_POST['column_value1'];
+                    $cValue2 = $_POST['column_value2'];
+
+                    $sql_update = "UPDATE $tName SET $cName1 = '$cValue1', $cName2= '$cValue2' WHERE $condition= '$con_value'";
+
+                    $result = mysqli_query($connection, $sql_update);
+                    if ($result) {
+                        echo "Successfully updated those values";
+                    } else {
+                        echo "Please try again!";
                     }
                 }
                 ?>
