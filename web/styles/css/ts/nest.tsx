@@ -2,10 +2,10 @@ var style = document.createElement('style');
   style.innerHTML = `
   
   #nest {
-  color: blueviolet;
+  color: #080c12;
   font-size: 25px;
   text-align: center;
-  background: #110f1c;
+  background: #297bff;
   padding: 15px 15px;
   }
 
@@ -17,7 +17,7 @@ var style = document.createElement('style');
   }
 
   #hrline {
-    color: #631600;
+    color: #297bff;
   }
 
   .form-color {

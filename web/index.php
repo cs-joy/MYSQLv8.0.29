@@ -450,22 +450,20 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="sub_asc">Ascending</button>
             </form>
             <?php
-              if(isset($_POST['sub_asc']))
-              {
+            if (isset($_POST['sub_asc'])) {
                 $categid = $_POST['categid'];
 
                 $x_query = "SELECT * FROM products ORDER BY $categid";
                 $xecute = mysqli_query($connection, $x_query);
 
-                if($xecute){
-                    while($row=mysqli_fetch_assoc($xecute)){
+                if ($xecute) {
+                    while ($row = mysqli_fetch_assoc($xecute)) {
                         $prdName = $row['Price'];
 
                         echo "<p class='prdName'>$prdName</p>";
                     }
                 }
-
-              }
+            }
             ?>
             <hr />
             <form action="index.php" method="post">
@@ -475,22 +473,20 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="sub_as">Descending</button>
             </form>
             <?php
-              if(isset($_POST['sub_as']))
-              {
+            if (isset($_POST['sub_as'])) {
                 $categ = $_POST['categi'];
 
                 $sq_query = "SELECT * FROM products ORDER BY $categ DESC";
                 $xecut = mysqli_query($connection, $sq_query);
 
-                if($xecut){
-                    while($row=mysqli_fetch_assoc($xecut)){
+                if ($xecut) {
+                    while ($row = mysqli_fetch_assoc($xecut)) {
                         $prdame = $row['Price'];
 
                         echo "<p class='prdName'>$prdame</p>";
                     }
                 }
-
-              }
+            }
             ?>
             <hr />
             <p id="pro">ORDER BY Several Columns</p>
@@ -503,23 +499,21 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="sub_a">multiAscending</button>
             </form>
             <?php
-              if(isset($_POST['sub_a']))
-              {
+            if (isset($_POST['sub_a'])) {
                 $categ1 = $_POST['categi1'];
                 $categ2 = $_POST['categi2'];
 
                 $sq_query = "SELECT * FROM products ORDER BY $categ1, $categ2";
                 $xecut = mysqli_query($connection, $sq_query);
 
-                if($xecut){
-                    while($row=mysqli_fetch_assoc($xecut)){
+                if ($xecut) {
+                    while ($row = mysqli_fetch_assoc($xecut)) {
                         $prdame = $row['Price'];
 
                         echo "<p class='prdName'>$prdame</p>";
                     }
                 }
-
-              }
+            }
             ?>
             <hr class="hi" />
             <form action="index.php" method="post">
@@ -531,23 +525,21 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="suba">Ascending + Descending</button>
             </form>
             <?php
-              if(isset($_POST['suba']))
-              {
+            if (isset($_POST['suba'])) {
                 $cat1 = $_POST['cati1'];
                 $cat2 = $_POST['cati2'];
 
                 $sq_query = "SELECT * FROM products ORDER BY $cat1 ASC, $cat2 DESC";
                 $xecut = mysqli_query($connection, $sq_query);
 
-                if($xecut){
-                    while($row=mysqli_fetch_assoc($xecut)){
+                if ($xecut) {
+                    while ($row = mysqli_fetch_assoc($xecut)) {
                         $prdame = $row['ProductID'];
 
                         echo "<p class='prdName'>$prdame</p>";
                     }
                 }
-
-              }
+            }
             ?>
             <hr class="hi" />
             <form action="index.php" method="post">
@@ -559,34 +551,29 @@ if (isset($_POST['create'])) {
                 <button type="submit" name="subs">Descending + Ascending</button>
             </form>
             <?php
-              if(isset($_POST['subs']))
-              {
+            if (isset($_POST['subs'])) {
                 $ca1 = $_POST['cat1'];
                 $ca2 = $_POST['cat2'];
 
                 $squery = "SELECT * FROM products ORDER BY $ca1 DESC, $ca2 ASC";
                 $execut = mysqli_query($connection, $squery);
 
-                if($execut){
-                    while($row=mysqli_fetch_assoc($execut)){
+                if ($execut) {
+                    while ($row = mysqli_fetch_assoc($execut)) {
                         $prdame = $row['ProductID'];
 
                         echo "<p class='prdName'>$prdame</p>";
                     }
                 }
-
-              }
+            }
             ?>
 
             <hr id="hrline" />
             <h3 id="nest">INSERT INTO</h3>
-            
+
             <form action="index.php" method="post">
                 <label for="table_name">Table</label>
                 <input type="text" class="form-color" name="table_name">
-
-                <label for="id_num">ID</label>
-                <input type="text" class="form-color" name="id_num">
 
                 <label for="column_name1">Column1</label>
                 <input type="text" class="form-color" name="column_name1">
@@ -598,16 +585,14 @@ if (isset($_POST['create'])) {
                 <label for="column_value2">Value2</label>
                 <input type="text" class="form-color" name="column_value2">
 
-                
+
                 <button type="submit" class="form-color" name="insert-into">Submit</button>
             </form>
             <hr class="hrlin" />
             <?php
-              if(isset($_POST['insert-into'])){
+            if (isset($_POST['insert-into'])) {
                 //table name
                 $tName = $_POST['table_name'];
-
-                $id = $_POST['id_num'];
 
                 //column name
                 $cName1 = $_POST['column_name1'];
@@ -617,21 +602,76 @@ if (isset($_POST['create'])) {
                 $cValue1 = $_POST['column_value1'];
                 $cValue2 = $_POST['column_value2'];
 
-                //$sql_query = "INSERT INTO $tName($cName1, $cName2) VALUES('$cValue1', '$cValue2')";
-                $sql_update = "UPDATE $tName SET $cName1 = '$cValue1', $cName2= '$cValue2' WHERE id= $id";
-                
-                $result = mysqli_query($connection, $sql_update);
-                if($result){
-                    echo "Successfully updated those values";
+                $query_insert = "INSERT INTO $tName($cName1, $cName2) VALUES('$cValue1', '$cValue2')";
+
+                $result = mysqli_query($connection, $query_insert);
+                if ($result) {
+                    echo "Successfully inserted those values";
                 } else {
                     echo "Please try again!";
                 }
-              }
+            }
             ?>
+            <div class="update">
+                <hr id="hrline" />
+                <h3 id="nest">UPDATE</h3>
+
+                <form action="index.php" method="post">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-color" name="condition">
+                    <label for="con_value">Value</label>
+                    <input type="text" class="form-color" name="con_value">
+                    <br />
+                    <br />
+                    <label for="table_name">Table</label>
+                    <input type="text" class="form-color" name="table_name">
+
+                    <label for="column_name1">Column1</label>
+                    <input type="text" class="form-color" name="column_name1">
+                    <label for="column_name2">Column2</label>
+                    <input type="text" class="form-color" name="column_name2">
+
+                    <label for="column_value1">Value1</label>
+                    <input type="text" class="form-color" name="column_value1">
+                    <label for="column_value2">Value2</label>
+                    <input type="text" class="form-color" name="column_value2">
+
+
+                    <button type="submit" class="form-color" name="update">Submit</button>
+                </form>
+                <hr class="hrlin" />
+                <?php
+                if (isset($_POST['update'])) {
+                    //table name
+                    $tName = $_POST['table_name'];
+
+                    $condition = $_POST['condition'];
+                    $con_value = $_POST['con_value'];
+
+                    //column name
+                    $cName1 = $_POST['column_name1'];
+                    $cName2 = $_POST['column_name2'];
+
+                    //column value
+                    $cValue1 = $_POST['column_value1'];
+                    $cValue2 = $_POST['column_value2'];
+
+                    $sql_update = "UPDATE $tName SET $cName1 = '$cValue1', $cName2= '$cValue2' WHERE $condition= '$con_value'";
+
+                    $result = mysqli_query($connection, $sql_update);
+                    if ($result) {
+                        echo "Successfully updated those values";
+                    } else {
+                        echo "Please try again!";
+                    }
+                }
+                ?>
+            </div>
         </div>
     </div>
     <!-- write css style in typescript -->
     <script src="./styles/css/ts/nest.tsx"></script>
+    <script src="./styles/css/js/design.js"></script>
     <script src="./css/withTS/design.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
