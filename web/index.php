@@ -580,11 +580,11 @@ if (isset($_POST['create'])) {
 
             <hr id="hrline" />
             <h3 id="nest">INSERT INTO</h3>
-            <hr class="hrlin" />
+            
             <form action="index.php" method="post">
 
             </form>
-        
+            <hr class="hrlin" />
         </div>
     </div>
     <!-- write css style in typescript -->
