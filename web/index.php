@@ -667,6 +667,57 @@ if (isset($_POST['create'])) {
                 }
                 ?>
             </div>
+            <div class="update">
+                <hr id="hrline" />
+                <h3 id="nest">NULL</h3>
+
+                <form action="index.php" method="post">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-color" name="condition">
+                    <br />
+                    <br />
+                    <label for="table_name">Table</label>
+                    <input type="text" class="form-color" name="table_name">
+
+                    <label for="column_name1">Column1</label>
+                    <input type="text" class="form-color" name="column_name1">
+                    <label for="column_name2">Column2</label>
+                    <input type="text" class="form-color" name="column_name2">
+
+
+                    <button type="submit" class="form-color" name="null">Submit</button>
+                </form>
+                <hr class="hrlin" />
+                <?php
+                if (isset($_POST['null'])) {
+                    //table name
+                    $tName = $_POST['table_name'];
+
+                    $condition = $_POST['condition'];
+
+                    //column name
+                    $cName1 = $_POST['column_name1'];
+                    $cName2 = $_POST['column_name2'];
+
+                    $sql_null = "SELECT $cName1, $cName2 FROM $tName WHERE $condition IS NULL";
+
+                    $result = mysqli_query($connection, $sql_nul);
+                    
+                    if($result){
+                        $data_fetch = mysqli_fetch_assoc($result);
+                        while($data_fetch){
+                          $n = $data_fetch_['name'];
+                          $e = $data_fetch_['email'];
+                          $p = $data_fetch_['position'];
+
+                          echo "<h4>$n</h4>\n";
+                          echo "<h4>$e</h4>\n";
+                          echo "<h4>$p</h4>\n";
+                        }
+                    }
+                }
+                ?>
+            </div>
         </div>
     </div>
     <!-- write css style in typescript -->
