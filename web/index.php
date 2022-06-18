@@ -578,8 +578,9 @@ if (isset($_POST['create'])) {
               }
             ?>
 
-            <hr class="hi" />
+            <hr id="hrline" />
             <h3 id="nest">INSERT INTO</h3>
+            <hr class="hrlin" />
             <form action="index.php" method="post">
 
             </form>
