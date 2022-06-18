@@ -793,11 +793,11 @@ if (isset($_POST['create'])) {
                     <input type="text" class="form-color" name="column_value2">
 
 
-                    <button type="submit" class="form-color" name="update">Submit</button>
+                    <button type="submit" class="form-color" name="update_multiple">Submit</button>
                 </form>
                 <hr class="hrlin" />
                 <?php
-                if (isset($_POST['update'])) {
+                if (isset($_POST['update_multiple'])) {
                     //table name
                     $tName = $_POST['table_name'];
 
@@ -816,7 +816,7 @@ if (isset($_POST['create'])) {
 
                     $result = mysqli_query($connection, $sql_update);
                     if ($result) {
-                        echo "Successfully updated those values";
+                        echo "Successfully updated multiple values";
                     } else {
                         echo "Please try again!";
                     }
