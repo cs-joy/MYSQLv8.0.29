@@ -823,6 +823,39 @@ if (isset($_POST['create'])) {
                 }
                 ?>
             </div>
+            <div class="delete">
+                <hr id="hrline" />
+                <h3 id="nest">DELETE Statement</h3>
+
+                <form action="index.php" method="post">
+                    <label for="table_name">Table</label>
+                    <input type="text" name="table_name">
+
+                    <label for="condition">Condition</label>
+                    <input type="text" name="condition">
+                    <label for="condition_value">Value</label>
+                    <input type="text" name="condition_value">
+
+                    <button class="btn-sty" type="submit" name="delete_statement">Delete Selected Record</button>
+                </form>
+                <?php
+                if(isset($_POST['delete_statement'])){
+                    $tname = $_POST['table_name'];
+                    $cond = $_POST['condition'];
+                    $cond_value = $_POST['condition_value'];
+
+                    $query_delete = "DELETE FROM $tname WHERE $cond = '$cond_value'";
+                    $result = mysqli_query($connection, $query_delete);
+
+                    if($result){
+                        echo "<h4>record successfully deleted</h4>";
+                    } else {
+                        echo "please try again";
+                    }
+                }
+                ?>
+
+            </div>
         </div>
     </div>
     <!-- write css style in typescript -->

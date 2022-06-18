@@ -15,3 +15,22 @@
 .prdName {
     color: brown
 }
+
+.delete {
+    background: brown;
+    padding: 15px 15px;
+    color: white;
+    text-align: center;
+}
+
+.btn-sty {
+    
+    color:#080c12;
+    background-color: #297bff;
+    font-weight: bold;
+}
+
+.btn-sty:hover {
+    color: #bbd6ff;
+    background-color: #297bff;
+}
