@@ -577,10 +577,17 @@ if (isset($_POST['create'])) {
 
               }
             ?>
+
+            <hr class="hi" />
+            <h3 id="nest">INSERT INTO</h3>
+            <form action="index.php" method="post">
+
+            </form>
         
         </div>
     </div>
     <!-- write css style in typescript -->
+    <script src="./styles/css/ts/nest.tsx"></script>
     <script src="./css/withTS/design.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
