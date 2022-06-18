@@ -584,6 +584,10 @@ if (isset($_POST['create'])) {
             <form action="index.php" method="post">
                 <label for="table_name">Table</label>
                 <input type="text" class="form-color" name="table_name">
+
+                <label for="id_num">ID</label>
+                <input type="text" class="form-color" name="id_num">
+
                 <label for="column_name1">Column1</label>
                 <input type="text" class="form-color" name="column_name1">
                 <label for="column_name2">Column2</label>
@@ -601,15 +605,27 @@ if (isset($_POST['create'])) {
             <?php
               if(isset($_POST['insert-into'])){
                 //table name
-                $tName = $_POST[''];
+                $tName = $_POST['table_name'];
+
+                $id = $_POST['id_num'];
 
                 //column name
-                $cName1 = $_POST[''];
-                $cName2 = $_POST[''];
+                $cName1 = $_POST['column_name1'];
+                $cName2 = $_POST['column_name2'];
 
                 //column value
-                $cValue1 = $_POST[''];
-                $cValue2 = $_POST[''];
+                $cValue1 = $_POST['column_value1'];
+                $cValue2 = $_POST['column_value2'];
+
+                //$sql_query = "INSERT INTO $tName($cName1, $cName2) VALUES('$cValue1', '$cValue2')";
+                $sql_update = "UPDATE $tName SET $cName1 = '$cValue1', $cName2= '$cValue2' WHERE id= $id";
+                
+                $result = mysqli_query($connection, $sql_update);
+                if($result){
+                    echo "Successfully updated those values";
+                } else {
+                    echo "Please try again!";
+                }
               }
             ?>
         </div>
