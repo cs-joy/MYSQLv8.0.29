@@ -20,5 +20,12 @@ var style = document.createElement('style');
     color: #631600;
   }
 
+  .form-color {
+    color: purple;
+    border-color: purple;
+    width: 100px;
+    border-radius: 5px;
+  }
+
   `;
   document.head.appendChild(style);

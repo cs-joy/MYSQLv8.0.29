@@ -582,9 +582,36 @@ if (isset($_POST['create'])) {
             <h3 id="nest">INSERT INTO</h3>
             
             <form action="index.php" method="post">
+                <label for="table_name">Table</label>
+                <input type="text" class="form-color" name="table_name">
+                <label for="column_name1">Column1</label>
+                <input type="text" class="form-color" name="column_name1">
+                <label for="column_name2">Column2</label>
+                <input type="text" class="form-color" name="column_name2">
 
+                <label for="column_value1">Value1</label>
+                <input type="text" class="form-color" name="column_value1">
+                <label for="column_value2">Value2</label>
+                <input type="text" class="form-color" name="column_value2">
+
+                
+                <button type="submit" class="form-color" name="insert-into">Submit</button>
             </form>
             <hr class="hrlin" />
+            <?php
+              if(isset($_POST['insert-into'])){
+                //table name
+                $tName = $_POST[''];
+
+                //column name
+                $cName1 = $_POST[''];
+                $cName2 = $_POST[''];
+
+                //column value
+                $cValue1 = $_POST[''];
+                $cValue2 = $_POST[''];
+              }
+            ?>
         </div>
     </div>
     <!-- write css style in typescript -->
