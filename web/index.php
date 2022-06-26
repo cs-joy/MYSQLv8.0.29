@@ -871,7 +871,7 @@ if (isset($_POST['create'])) {
                         <hr />
                         <label for="limitation">Limit</label>
                         <input type="text" name="limitation">
-
+                        <br />
                         <button type="submit" name="limit_clause" class="btnStyle">Extract</button>
                     </form>
                 </div>

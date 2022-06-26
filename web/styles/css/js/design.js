@@ -29,7 +29,7 @@ var style = document.createElement('style');
     font-weight: bold;
     border-radius: 5px;
     border-color: #47cbff;
-    margin-left: 10px;
+    margin-top: 10px;
   }
 
   .btnStyle:hover {
