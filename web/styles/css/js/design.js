@@ -24,5 +24,18 @@ var style = document.createElement('style');
     color: #47cbff;
   }
 
+  .btnStyle {
+    background-color: #47cbff;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: #47cbff;
+    margin-left: 10px;
+  }
+
+  .btnStyle:hover {
+    color: #092e3d;
+    background: #fff;
+  }
+
   `;
   document.head.appendChild(style);

@@ -866,6 +866,13 @@ if (isset($_POST['create'])) {
                         <input type="text" name="column_name">
                         <label for="table_name">Table Name</label>
                         <input type="text" name="table_name">
+                        <label for="condition">Condition</label>
+                        <input type="text" name="condition">
+                        <hr />
+                        <label for="limitation">Limit</label>
+                        <input type="text" name="limitation">
+
+                        <button type="submit" name="limit_clause" class="btnStyle">Extract</button>
                     </form>
                 </div>
 
