@@ -862,8 +862,7 @@ if (isset($_POST['create'])) {
 
                 <div class="formDesign">
                     <form action="index.php" method="post">
-                        <label for="column_name">Column Name</label>
-                        <input type="text" name="column_name">
+
                         <label for="table_name">Table Name</label>
                         <input type="text" name="table_name">
 
@@ -881,7 +880,6 @@ if (isset($_POST['create'])) {
 
                 <?php
                   if(isset($_POST['limit_clause'])) {
-                    $columnN = $_POST['column_name'];
                     $tableN = $_POST['table_name'];
                     $conditioN = $_POST['condition'];
                     $conditiovalue = $_POST['conditionV'];
@@ -889,21 +887,22 @@ if (isset($_POST['create'])) {
 
                     $sqlQ = "SELECT * FROM $tableN WHERE $conditioN='$conditiovalue' LIMIT $limitN";
                     $queryExecution = mysqli_query($connection, $sqlQ);
-
+                    
                     if($queryExecution){
                         echo "exectuion successfull";
+                        echo "<br />";
                         while($rowD = mysqli_fetch_assoc($queryExecution)){
-                            $name = $rowD['name'];
-                            /*$nme = $rowD['name'];
-                            $own = $rowD['owner'];
-                            $birt = $rowD['birth']; */
+                            $name = $rowD['email'];
+                            $id = $rowD['id'];
+                            
 
-                            echo "<h3>$name</h3>";
+                            echo "<td>$id</td> <td>$name</td> <br />";
 
                         }
                     } else {
                         echo "please try again";
                     }
+                    
 
                   }
                 ?>
