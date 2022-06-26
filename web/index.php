@@ -859,7 +859,7 @@ if (isset($_POST['create'])) {
 
             <div class="slimit">
                 <hr class="shr" />
-                <div class="textHeading">LIMIT Statement</div>
+                <div class="tHeading">LIMIT Statement</div>
 
                 <div class="formDesign">
                     <form action="index.php" method="post">
