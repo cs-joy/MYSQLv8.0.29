@@ -856,9 +856,55 @@ if (isset($_POST['create'])) {
                 ?>
 
             </div>
+
+            <div class="slimit">
+                <hr class="shr" />
+                <div class="textHeading">LIMIT Statement</div>
+
+                <div class="formDesign">
+                    <form action="index.php" method="post">
+
+                        <label for="table_name">Table Name</label>
+                        <input type="text" name="table_name">
+                        <label for="limitation">Limit</label>
+                        <input type="text" name="limitation">
+                        <br />
+                        <button type="submit" name="limit_cla" class="btnStyle">Extract</button>
+                    </form>
+                </div>
+
+                <?php
+                  if(isset($_POST['limit_cla'])) {
+                    $tableN = $_POST['table_name'];
+                    $limitN = $_POST['limitation'];
+
+                    $sql = "SELECT * FROM $tableN LIMIT $limitN";
+                    $queryExecu = mysqli_query($connection, $sql);
+                    
+                    if($queryExecu){
+                        echo "exectuion successfull";
+                        echo "<br />";
+                        while($row = mysqli_fetch_assoc($queryExecu)){
+                            $name = $row['email'];
+                            $id = $row['id'];
+                            
+
+                            echo "<td>$id</td> <td>$name</td> <br />";
+
+                        }
+                    } else {
+                        echo "please try again";
+                    }
+                    
+
+                  }
+                ?>
+
+            </div>
+
             <div class="limit">
                 <hr class="lhr" />
-                <div class="textHeading">LIMIT Statement</div>
+                <div class="textHeading" title="ADD a WHERE CLAUSE">LIMIT Statement</div>
 
                 <div class="formDesign">
                     <form action="index.php" method="post">

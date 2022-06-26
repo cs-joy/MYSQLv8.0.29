@@ -41,5 +41,16 @@ var style = document.createElement('style');
     text-align: center;
   }
 
+  .slimit {
+    margin: 25px;
+    background: #48f7a2;
+    padding: 2px 8px;
+    color: #29281f;
+  }
+
+  .shr {
+    color: #00122e;
+  }
+
   `;
   document.head.appendChild(style);
