@@ -27,5 +27,19 @@ var style = document.createElement('style');
     border-radius: 5px;
   }
 
+  .textHeading {
+    color: #092e3d;
+    font-size: 25px;
+    text-align: center;
+    background: #fff;
+    font-weight: bold;
+    padding: 15px 15px;
+  }
+
+  .formDesign {
+    margin: 20px;
+    text-align: center;
+  }
+
   `;
   document.head.appendChild(style);

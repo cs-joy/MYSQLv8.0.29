@@ -13,5 +13,16 @@ var style = document.createElement('style');
     color: #3884ff;
   }
 
+  .limit {
+    margin: 25px;
+    background: #092e3d;
+    padding: 2px 8px;
+    color: #47cbff;
+  }
+  
+  .lhr {
+    color: #47cbff;
+  }
+
   `;
   document.head.appendChild(style);

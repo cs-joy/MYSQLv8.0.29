@@ -856,6 +856,20 @@ if (isset($_POST['create'])) {
                 ?>
 
             </div>
+            <div class="limit">
+                <hr class="lhr" />
+                <div class="textHeading">LIMIT Statement</div>
+
+                <div class="formDesign">
+                    <form action="index.php" method="post">
+                        <label for="column_name">Column Name</label>
+                        <input type="text" name="column_name">
+                        <label for="table_name">Table Name</label>
+                        <input type="text" name="table_name">
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
     <!-- write css style in typescript -->
