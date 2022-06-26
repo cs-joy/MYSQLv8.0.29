@@ -866,8 +866,11 @@ if (isset($_POST['create'])) {
                         <input type="text" name="column_name">
                         <label for="table_name">Table Name</label>
                         <input type="text" name="table_name">
+
                         <label for="condition">Condition</label>
-                        <input type="text" name="condition">
+                        <input type="text" name="condition"> <br />
+                        <label for="conditionV">ConditionValue</label>
+                        <input type="text" name="conditionV">
                         <hr />
                         <label for="limitation">Limit</label>
                         <input type="text" name="limitation">
@@ -877,39 +880,25 @@ if (isset($_POST['create'])) {
                 </div>
 
                 <?php
-                  if(isset($_POST['limit_clase'])) {
+                  if(isset($_POST['limit_clause'])) {
                     $columnN = $_POST['column_name'];
                     $tableN = $_POST['table_name'];
                     $conditioN = $_POST['condition'];
+                    $conditiovalue = $_POST['conditionV'];
                     $limitN = $_POST['limitation'];
 
-                    $sqlQ = "SELECT $columnN FROM $tableN WHERE $conditioN LIMIT $limitN";
+                    $sqlQ = "SELECT * FROM $tableN WHERE $conditioN='$conditiovalue' LIMIT $limitN";
                     $queryExecution = mysqli_query($connection, $sqlQ);
 
                     if($queryExecution){
                         echo "exectuion successfull";
-                        while($rowD = mysqli_fetch_assoc($$queryExecution)){
-                            $Id = $row['id'];
-                            $nme = $row['name'];
-                            $own = $row['owner'];
-                            $birt = $row['birth'];
+                        while($rowD = mysqli_fetch_assoc($queryExecution)){
+                            $name = $rowD['name'];
+                            /*$nme = $rowD['name'];
+                            $own = $rowD['owner'];
+                            $birt = $rowD['birth']; */
 
-                            echo "
-                              <table>
-                                <tr>
-                                  <th>ID</th>
-                                  <th>NAME</th>
-                                  <th>OWNER</th>
-                                  <th>BIRTH</th>
-                                </tr>
-                                <tr>
-                                  <td>$Id</td>
-                                  <td>$nme</td>
-                                  <td>$own</td>
-                                  <td>$birt</td>
-                                </tr>
-                              </table>
-                            ";
+                            echo "<h3>$name</h3>";
 
                         }
                     } else {
