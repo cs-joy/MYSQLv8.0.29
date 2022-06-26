@@ -876,6 +876,49 @@ if (isset($_POST['create'])) {
                     </form>
                 </div>
 
+                <?php
+                  if(isset($_POST['limit_clase'])) {
+                    $columnN = $_POST['column_name'];
+                    $tableN = $_POST['table_name'];
+                    $conditioN = $_POST['condition'];
+                    $limitN = $_POST['limitation'];
+
+                    $sqlQ = "SELECT $columnN FROM $tableN WHERE $conditioN LIMIT $limitN";
+                    $queryExecution = mysqli_query($connection, $sqlQ);
+
+                    if($queryExecution){
+                        echo "exectuion successfull";
+                        while($rowD = mysqli_fetch_assoc($$queryExecution)){
+                            $Id = $row['id'];
+                            $nme = $row['name'];
+                            $own = $row['owner'];
+                            $birt = $row['birth'];
+
+                            echo "
+                              <table>
+                                <tr>
+                                  <th>ID</th>
+                                  <th>NAME</th>
+                                  <th>OWNER</th>
+                                  <th>BIRTH</th>
+                                </tr>
+                                <tr>
+                                  <td>$Id</td>
+                                  <td>$nme</td>
+                                  <td>$own</td>
+                                  <td>$birt</td>
+                                </tr>
+                              </table>
+                            ";
+
+                        }
+                    } else {
+                        echo "please try again";
+                    }
+
+                  }
+                ?>
+
             </div>
         </div>
     </div>
