@@ -980,19 +980,10 @@ if (isset($_POST['create'])) {
 
                     $minQuery = "SELECT MIN($cName) AS $cDisplay FROM $tName";
                     $minResult = mysqli_query($connection, $minQuery);
+                    $ro = mysqli_fetch_assoc($minResult);
 
-                    if($minResult){
-                        echo "extract success!\n\n";
-                        while($minFetch = mysqli_fetch_assoc($minResult)){
-                            
-                          $minPrice = $minFetch['id'];
-
-                          echo "<h5>$minPrice</h5>";
-                        }
-                        
-                    } else {
-                        echo "please try again!";
-                    }
+                    $hi = $ro['id'];
+                    echo "<h1>$hi</h1>";
                   }
                 
                 ?>
