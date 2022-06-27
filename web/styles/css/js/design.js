@@ -37,5 +37,26 @@ var style = document.createElement('style');
     background: #fff;
   }
 
+  .vueClass {
+    margin: 25px;
+    background: #48f7a2;
+    padding: 2px 8px;
+    color: #29281f;
+  }
+
+  .vueHr {
+    color: #00122e;
+  }
+
+  #vueHeading {
+    color: #092e3d;
+    font-size: 25px;
+    text-align: center;
+    background: #fff;
+    font-weight: bold;
+    padding: 35px;
+    margin: 35px;
+  }
+
   `;
   document.head.appendChild(style);

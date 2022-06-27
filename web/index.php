@@ -954,12 +954,18 @@ if (isset($_POST['create'])) {
                 ?>
 
             </div>
+
+            <div class="vueClass">
+                <hr class="vueHr" />
+                <div id="vueHeading">Min / Max Statement</div>
+            </div>
+
         </div>
     </div>
-    <!-- write css style in typescript -->
+    <!-- write css style in typescript and javascript -->
     <script src="./styles/css/ts/nest.tsx"></script>
-    <script src="./styles/css/js/design.js"></script>
-    <script src="./css/withTS/design.js"></script>
+    <script type="text/javascript" src="./styles/css/js/design.js"></script>
+    <script type="text/javascript" src="./css/withTS/design.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
