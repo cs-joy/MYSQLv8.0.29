@@ -967,6 +967,11 @@ if (isset($_POST['create'])) {
 
                     <label for="tName">Table Name</label>
                     <input type="text" name="tName">
+                    <br />
+                    <label for="conName">Condition Name</label>
+                    <input type="text" name="conName">
+                    <label for="conValue">Condition Value</label>
+                    <input type="text" name="conValue">
 
                     <button type="submit" name="min">Min()</button>
                 </form>
@@ -974,16 +979,25 @@ if (isset($_POST['create'])) {
                 <?php
 
                   if(isset($_POST['min'])){
-                    $cName = $_POST['cName'];
+                    $clName = $_POST['cName'];
                     $cDisplay = $_POST['cDisplay'];
                     $tName = $_POST['tName'];
 
-                    $minQuery = "SELECT MIN($cName) AS $cDisplay FROM $tName";
-                    $minResult = mysqli_query($connection, $minQuery);
-                    $ro = mysqli_fetch_assoc($minResult);
+                    $conName = $_POST['conName'];
+                    $conValue = $_POST['conValue'];
 
-                    $hi = $ro['id'];
-                    echo "<h1>$hi</h1>";
+                    $minQuery = "SELECT MIN($clName) AS $cDisplay FROM $tName ";
+                    $mResult = mysqli_query($connection, $minQuery);
+                    if($mResult){
+                        while($dataFetch = mysqli_fetch_assoc($mResult)){
+
+                            $id = $dataFetch['ProductName'];
+
+                            echo "<h3>$id</h3>";
+
+                        }
+                    }
+                    
                   }
                 
                 ?>
