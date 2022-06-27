@@ -957,7 +957,46 @@ if (isset($_POST['create'])) {
 
             <div class="vueClass">
                 <hr class="vueHr" />
-                <div id="vueHeading">Min / Max Statement</div>
+                <div id="vueHeading">Min() and Max() Functions</div>
+                <form action="index.php" class="vueForm" method="post">
+                    <label for="cName">Column Name</label>
+                    <input type="text" name="cName">
+
+                    <label for="cDisplay">C Display</label>
+                    <input type="text" name="cDisplay">
+
+                    <label for="tName">Table Name</label>
+                    <input type="text" name="tName">
+
+                    <button type="submit" name="min">Min()</button>
+                </form>
+
+                <?php
+
+                  if(isset($_POST['min'])){
+                    $cName = $_POST['cName'];
+                    $cDisplay = $_POST['cDisplay'];
+                    $tName = $_POST['tName'];
+
+                    $minQuery = "SELECT MIN($cName) AS $cDisplay FROM $tName";
+                    $minResult = mysqli_query($connection, $minQuery);
+
+                    if($minResult){
+                        echo "extract success!\n\n";
+                        while($minFetch = mysqli_fetch_assoc($minResult)){
+                            
+                          $minPrice = $minFetch['id'];
+
+                          echo "<h5>$minPrice</h5>";
+                        }
+                        
+                    } else {
+                        echo "please try again!";
+                    }
+                  }
+                
+                ?>
+
             </div>
 
         </div>

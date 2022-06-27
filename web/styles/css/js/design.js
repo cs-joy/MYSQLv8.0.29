@@ -58,5 +58,9 @@ var style = document.createElement('style');
     margin: 35px;
   }
 
+  .vueForm {
+    padding: 25px 15px;
+  }
+
   `;
   document.head.appendChild(style);
